@@ -18,7 +18,7 @@ import java.util.List;
 
 public class BenchmarkRunner {
 
-    private static final int NUMBER_OF_RUNS = 100000;
+    private static final int NUMBER_OF_RUNS = 1000;
     private static final boolean PRINT_EACH_RUN = true;
     private static final int WARMUP_RUNS = 5;
 
