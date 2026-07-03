@@ -9,11 +9,16 @@ nbdist/
 .nb-gradle/
 
 # Benchmark outputs
-analysis/output/
+analysis/output
+analysis/output/*.pdf
+analysis/output/*.png
 
 # Generated CSVs
 benchmark_summary_*.csv
 benchmark_raw_*.csv
+benchmark_results*.csv
+benchmark_raw*.csv
+benchmark_summary*.csv
 
 # Logs
 *.log

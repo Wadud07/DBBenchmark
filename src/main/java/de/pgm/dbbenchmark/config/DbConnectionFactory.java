@@ -7,10 +7,10 @@ import java.sql.SQLException;
 public class DbConnectionFactory {
 
     private static final String H2_URL =
-            "jdbc:h2:tcp://localhost/~/h2db/test";
+        "jdbc:h2:tcp://192.168.80.128/~/h2db/test";
 
     private static final String HSQL_URL =
-            "jdbc:hsqldb:hsql://localhost/testdb";
+        "jdbc:hsqldb:hsql://192.168.80.128/testdb";
 
     private static final String USER = "sa";
     private static final String PASSWORD = "";
