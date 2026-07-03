@@ -53,7 +53,7 @@ def pdf_filename():
 # Cover Page
 # ----------------------------------------------------------
 
-def add_cover_page(story, df):
+def add_cover_page(story, df, measured_runs, warmup_runs):
 
     story.append(
         Paragraph(
@@ -102,13 +102,17 @@ def add_cover_page(story, df):
     )
 
     story.append(
-        Paragraph("<b>Measured Runs:</b> 20",
-                  styles["Normal"])
+        Paragraph(
+            f"<b>Measured Runs:</b> {measured_runs}",
+            styles["Normal"]
+        )
     )
 
     story.append(
-        Paragraph("<b>Warm-up Runs:</b> 5",
-                  styles["Normal"])
+        Paragraph(
+            f"<b>Warm-up Runs:</b> {warmup_runs}",
+            styles["Normal"]
+        )
     )
 
     story.append(PageBreak())
@@ -759,12 +763,17 @@ def add_t_test(story, raw_csv):
 
 def main():
 
-    if len(sys.argv) != 3:
-        print("Usage: python generate_charts.py <summary.csv> <raw.csv>")
+    if len(sys.argv) != 5:
+        print(
+            "Usage: python generate_charts.py "
+            "<summary.csv> <raw.csv> <measured_runs> <warmup_runs>"
+        )
         return
 
     summary_csv = sys.argv[1]
     raw_csv = sys.argv[2]
+    measured_runs = int(sys.argv[3])
+    warmup_runs = int(sys.argv[4])
 
     create_output_directory()
 
@@ -774,7 +783,7 @@ def main():
 
     story = []
 
-    add_cover_page(story, df)
+    add_cover_page(story, df, measured_runs, warmup_runs)
     add_summary_page(story, df)
     add_statistics_table(story, df)
 

@@ -18,7 +18,7 @@ import java.util.List;
 
 public class BenchmarkRunner {
 
-    private static final int NUMBER_OF_RUNS = 50;
+    private static final int NUMBER_OF_RUNS = 100;
     private static final boolean PRINT_EACH_RUN = true;
     private static final int WARMUP_RUNS = 5;
 
@@ -51,7 +51,9 @@ public class BenchmarkRunner {
                     "python3",
                     "analysis/generate_charts.py",
                     CsvExporter.getSummaryFileName(),
-                    CsvExporter.getRawFileName()
+                    CsvExporter.getRawFileName(),
+                    String.valueOf(NUMBER_OF_RUNS),
+                    String.valueOf(WARMUP_RUNS)
             );
 
             pb.inheritIO();
